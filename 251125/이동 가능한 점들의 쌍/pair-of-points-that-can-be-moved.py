@@ -4,7 +4,7 @@ dist = [[[float('inf'), 0] for _ in range(n+1)] for _ in range(n+1)]
 
 for i in range(1, n+1):
     dist[i][i][0] = 0
-    dist[i][i][1] = 1
+
 
 for i in range(m):
     n1, n2, w = map(int, input().split())
