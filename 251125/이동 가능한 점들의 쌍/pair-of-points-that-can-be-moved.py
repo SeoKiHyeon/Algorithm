@@ -16,11 +16,12 @@ for i in range(m):
 for k in range(1, n+1):
     for i in range(1, n+1):
         for j in range(1, n+1):
-            if dist[i][k][1] == 1 or dist[k][j][1] == 1:
-                if dist[i][j][0] > dist[i][k][0] + dist[k][j][0]:
-                    dist[i][j][0] = dist[i][k][0] + dist[k][j][0]
-
+            if dist[i][j][0] > dist[i][k][0] + dist[k][j][0]:
+                dist[i][j][0] = dist[i][k][0] + dist[k][j][0]
+                if dist[i][k][1] == 1 or dist[k][j][1] == 1:
                     dist[i][j][1] = 1
+                else:
+                    dist[i][j][1] = 0
 
 cnt = 0
 distance = 0
