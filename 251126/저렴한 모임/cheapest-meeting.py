@@ -25,4 +25,7 @@ for k in range(1, n+1):
 
   distance = min(distance, dist[v1][k] + dist[v2][k] + dist[k][e])
 
-print(distance)
+if distance == float('inf'):
+    print(-1)
+else:
+    print(distance)
