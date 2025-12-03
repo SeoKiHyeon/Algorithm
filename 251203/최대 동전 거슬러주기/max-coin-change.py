@@ -10,4 +10,9 @@ for i in range(1, m+1):
             if dp[i-arr[j]] == float('-inf'): continue 
             dp[i] = max(dp[i], dp[i-arr[j]] + 1)
 
-print(dp[m])
+ans = dp[m]
+
+if ans == float('-inf'):
+    ans = -1
+
+print(ans)
