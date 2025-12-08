@@ -7,22 +7,27 @@ for i in range(n):
     time.append(t)
 
 # Please write your code here.
-dp = [float('inf')] * (1000001)
+sum_time = sum(time)
+
+dp = [float('-inf')] * sum_time
 dp[0] = 0
 
 for i in range(1, n+1):
-    for j in range(1000000, 0, -1):
-        if j-exp[i] >= 0 and dp[j-exp[i]] != float('inf'):
-            dp[j] = min(dp[j], dp[j-exp[i]] + time[i])
+    for j in range(sum_time-1, 0, -1):
+        if j-time[i] >= 0 and dp[j-time[i]] != float('-inf'):
+            dp[j] = max(dp[j], dp[j-time[i]] + exp[i])
 
-ans = float('inf')
-for i in range(m, 1000001):
-    ans = min(dp[i], ans)
+ans = 0
+for i in range(sum_time):
+    if dp[i] >= m:
+        ans = i
+        break
 
 if ans == 0:
     print(-1)
 else:
     print(ans)
+
 
 
 # n : 퀘스트 개수 / m : 얻어야하는 최소 경험치 
